@@ -32,7 +32,7 @@ project {
     buildType(Build)
 
     params {
-        param("TestUserInput", "")
+        text("TestUserInput", "", label = "Enter User Input", allowEmpty = true)
     }
 }
 
