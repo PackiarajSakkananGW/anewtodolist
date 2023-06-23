@@ -39,6 +39,10 @@ project {
 object Build : BuildType({
     name = "Build"
 
+    params {
+        text("TestBuildParam", "", label = "Test Build Param", description = "TestBuildParam 2", allowEmpty = true)
+    }
+
     vcs {
         root(DslContext.settingsRoot)
     }
