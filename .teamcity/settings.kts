@@ -30,6 +30,10 @@ version = "2023.05"
 project {
 
     buildType(Build)
+
+    params {
+        param("Test User Input", "")
+    }
 }
 
 object Build : BuildType({
