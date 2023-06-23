@@ -32,7 +32,7 @@ project {
     buildType(Build)
 
     params {
-        param("Test User Input", "")
+        param("TestUserInput", "")
     }
 }
 
