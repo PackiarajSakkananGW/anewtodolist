@@ -39,6 +39,7 @@ object Build : BuildType({
     params {
         text("user.configuraion.name", "", label = "Parameter Name", description = "Insurance Now Configuration Parameter", display = ParameterDisplay.PROMPT, allowEmpty = true)
         password("user.configuration.value", "credentialsJSON:313af02f-06ea-4894-bb6f-cfe5c023af5e", label = "Test Build Param", description = "TestBuildParam 2", display = ParameterDisplay.PROMPT)
+        param("user.configuraion.value", "fdfgdfg")
     }
 
     vcs {
