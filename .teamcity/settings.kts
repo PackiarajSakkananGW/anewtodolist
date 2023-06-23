@@ -37,8 +37,7 @@ object Build : BuildType({
     name = "Build"
 
     params {
-        checkbox("custom.conf.test.value", "", label = "Sample Check Box",
-                  checked = "true", unchecked = "False")
+        text("user.configuraion.name", "", label = "Parameter Name", description = "Insurance Now Configuration Parameter", display = ParameterDisplay.PROMPT, allowEmpty = true)
         text("TestBuildParam", "", label = "Test Build Param", description = "TestBuildParam 2", display = ParameterDisplay.PROMPT, allowEmpty = true)
     }
 
