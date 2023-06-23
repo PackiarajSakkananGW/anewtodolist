@@ -51,7 +51,7 @@ object Build : BuildType({
             name = "TestBuildParamCMDLIne"
             scriptContent = """
                 echo %user.configuration.name%
-                echo %user.configuraion.value%
+                echo %user.configuration.value%
             """.trimIndent()
         }
         maven {
