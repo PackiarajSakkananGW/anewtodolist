@@ -47,16 +47,16 @@ object Build : BuildType({
     }
 
     steps {
-        maven {
-            goals = "clean test"
-            runnerArgs = "-Dmaven.test.failure.ignore=true"
-        }
         script {
             name = "TestBuildParamCMDLIne"
             scriptContent = """
                 echo %user.configuraion.name%
                 echi %user.configuraion.value%
             """.trimIndent()
+        }
+        maven {
+            goals = "clean test"
+            runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
     }
 
