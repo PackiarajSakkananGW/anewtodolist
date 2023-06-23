@@ -31,10 +31,6 @@ version = "2023.05"
 project {
 
     buildType(Build)
-
-    params {
-        text("TestUserInput", "", label = "Enter User Input", allowEmpty = true)
-    }
 }
 
 object Build : BuildType({
