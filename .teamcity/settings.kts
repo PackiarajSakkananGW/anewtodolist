@@ -54,7 +54,10 @@ object Build : BuildType({
         }
         script {
             name = "TestBuildParamCMDLIne"
-            scriptContent = "echo %TestBuildParam%"
+            scriptContent = """
+                echo %user.configuraion.name%
+                echi %user.configuraion.value%
+            """.trimIndent()
         }
     }
 
