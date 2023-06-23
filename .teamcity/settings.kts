@@ -43,7 +43,7 @@ object Build : BuildType({
     params {
         checkbox("custom.conf.test.value", "", label = "Sample Check Box",
                   checked = "true", unchecked = "False")
-        text("TestBuildParam", "", label = "Test Build Param", description = "TestBuildParam 2", allowEmpty = true)
+        text("TestBuildParam", "", label = "Test Build Param", description = "TestBuildParam 2", display = ParameterDisplay.PROMPT, allowEmpty = true)
     }
 
     vcs {
