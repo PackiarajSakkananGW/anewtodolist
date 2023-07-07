@@ -37,7 +37,8 @@ object Build : BuildType({
     name = "Build"
 
     params {
-        password("env.CONFIGURATION", "", label = "Properties", description = "Valid Syntax: Key=\"value\" pairs, one pair per line. Maximum number of allowed characters are 8K", display = ParameterDisplay.PROMPT)
+        password("env.CONFIGURATION", "", label = "Properties", description = "Valid Syntax: Key=\"value\" pairs, one pair per line. Maximum number of allowed characters are 4K", display = ParameterDisplay.PROMPT)
+        text("env.CONFIGURATIONT", "", label = "Properties", description = "Valid Syntax: Key=\"value\" pairs, one pair per line. Maximum number of allowed characters are 4K", display = ParameterDisplay.PROMPT)
     }
 
     vcs {
@@ -50,7 +51,10 @@ object Build : BuildType({
             scriptContent = """
                 echo "%env.CONFIGURATION%"
                 echo "%env.CONFIGURATION%" | wc
-                exec python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps
+                python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p CONFIGURATION
+                echo "======================"
+                python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p CONFIGURATIONT
+                
             """.trimIndent()
         }
         maven {
