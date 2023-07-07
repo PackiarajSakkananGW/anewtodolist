@@ -37,7 +37,7 @@ object Build : BuildType({
     name = "Build"
 
     params {
-          text("env.CONFIGURATION", "", label = "Properties", description = "Key value pairs in java properties style. Maximum number of allowed characters are 128K", display = ParameterDisplay.PROMPT, allowEmpty = false)
+          text("env.CONFIGURATION", "", label = "Properties", description = "Valid Syntax: Key=\"value\" pairs, one pair per line. Maximum number of allowed characters are 8K", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }
 
     vcs {
