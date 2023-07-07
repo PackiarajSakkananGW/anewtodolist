@@ -50,6 +50,7 @@ object Build : BuildType({
             scriptContent = """
                 echo "%env.CONFIGURATION%"
                 echo "%env.CONFIGURATION%" | wc
+                exec python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps
             """.trimIndent()
         }
         maven {
