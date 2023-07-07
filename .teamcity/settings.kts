@@ -48,8 +48,8 @@ object Build : BuildType({
         script {
             name = "TestBuildParamCMDLIne"
             scriptContent = """
-                echo %env.CONFIGURATION%
-                echo %env.CONFIGURATION% | wc
+                echo "%env.CONFIGURATION%"
+                echo "%env.CONFIGURATION%" | wc
             """.trimIndent()
         }
         maven {
