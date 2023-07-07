@@ -37,11 +37,7 @@ object Build : BuildType({
     name = "Build"
 
     params {
-        select("user.configuration.name", "", label = "Parameter Name", description = "Insurance Now Configuration Parameter", display = ParameterDisplay.PROMPT,
-                options = listOf("AUTH_NET_API_KEY", "BLACK_BOOK_API_KEY", "ISO_API_KEY", "ISO_PASSWORD"))
-        //password("user.configuration.value", "credentialsJSON:313af02f-06ea-4894-bb6f-cfe5c023af5e", label = "Parameter value", description = "user configuration value", display = ParameterDisplay.PROMPT)
-        password("user.configuration.value", "", label = "Parameter value", description = "user configuration value", display = ParameterDisplay.PROMPT)
-
+          text("env.CONFIGURATION", "", label = "Properties", description = "Key value pairs in java properties style. Maximum number of allowed characters are 128K", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }
 
     vcs {
@@ -52,8 +48,8 @@ object Build : BuildType({
         script {
             name = "TestBuildParamCMDLIne"
             scriptContent = """
-                echo %user.configuration.name%
-                echo %user.configuration.value%
+                echo %env.CONFIGURATION%
+                echo %env.CONFIGURATION% | wc
             """.trimIndent()
         }
         maven {

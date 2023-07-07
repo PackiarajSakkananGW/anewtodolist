@@ -1,0 +1,16 @@
+{
+  "defaults" : ["AUTH_NET_API_KEY", "BLACK_BOOK_API_KEY", "ISO_API_KEY", "ISO_PASSWORD"],
+  "NEWALMADEN": {
+    "ps": ["AUTH_NET_API_KEY_PS"],
+    "ram" : ["BLACK_BOOK_API_KEY_RAM"]
+  },
+  "IIC": {
+    "ps": ["AUTH_NET_API_KEY_PS"],
+    "ram" : ["BLACK_BOOK_API_KEY_RAM"]
+  },
+  "CUSTIIC": {
+    "defaults" : ["AUTH_NET_API_KEY_IIC", "BLACK_BOOK_API_KEY_IIC", "ISO_API_KEY_IIC", "ISO_PASSWORD_IIC"],
+    "ps": ["AUTH_NET_API_KEY_PS"],
+    "ram" : ["BLACK_BOOK_API_KEY_RAM"]
+  }
+}
