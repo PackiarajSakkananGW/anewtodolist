@@ -49,11 +49,7 @@ object Build : BuildType({
         script {
             name = "TestBuildParamCMDLIne"
             scriptContent = """
-                #echo "%env.CONFIGURATIONT%" | wc
-                python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p CONFIGURATION
-                echo "======================"
-                python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p CONFIGURATIONT
-                
+                python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p CONFIGURATIONT               
             """.trimIndent()
         }
         maven {
