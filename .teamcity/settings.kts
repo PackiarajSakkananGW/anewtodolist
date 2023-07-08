@@ -37,8 +37,10 @@ object Build : BuildType({
     name = "Build"
 
     params {
-        password("env.CONFIGURATION", "", label = "Properties", description = "Valid Syntax: Key=\"value\" pairs, one pair per line. Maximum number of allowed characters are 4K", display = ParameterDisplay.PROMPT)
-        text("env.CONFIGURATIONT", "", label = "Properties", description = "Valid Syntax: Key=\"value\" pairs, one pair per line. Maximum number of allowed characters are 4K", display = ParameterDisplay.PROMPT)
+        password("env.CONFIGURATION", "", label = "Properties", description = """Valid Syntax: Key="value" pairs, one pair per line. Maximum number of allowed characters are 4K""", display = ParameterDisplay.PROMPT)
+        text("env.CONFIGURATION_COUNT", "", label = "Count", description = "Number of configuration parameter to be update.", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        text("env.DENY_LIST_LOCATION", "s3://atmos-in-dev-teamcity-artifacts/tcvs-planetdeployments/assets/in-dev/allowed-parameter.json", label = "Deny List Location", description = "Location of deny list", display = ParameterDisplay.HIDDEN, readOnly = true, allowEmpty = false)
+        text("env.GIT_REPOSITORY", "git@github.com:iscs/insurancenow-core.git?ref=main", label = "Git repository URL", description = "Repository location of config.properties file with branch name", allowEmpty = false)
     }
 
     vcs {
@@ -50,7 +52,6 @@ object Build : BuildType({
             name = "TestBuildParamCMDLIne"
             scriptContent = """
                 python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p "%env.CONFIGURATION%"             
-                python3.9 /Users/psakkanan/work/guidewire/team-city/stash/in-dev-cluster/in-pd-gwcp-provisioner/scripts/update-tenant-env-ssm-secrets.py  -t newalmaden -e ps -p "%env.CONFIGURATIONT%"               
             """.trimIndent()
         }
         maven {
